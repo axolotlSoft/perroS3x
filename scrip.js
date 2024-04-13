@@ -89,10 +89,12 @@ function generarURLWhatsApp(numeroTelefono, mensaje) {
 // Función procesar pedido
 function procesarPedido() {
   // mostramos un mensaje de confirmación
-  alert("Tu pedido ha sido procesado");
+  //alert("Tu pedido ha sido procesado");
   const numero = 3327279981;
-  const mensaje = "Hola, me gustaría hacer un pedido";
+  //const mensaje = "Hola, me gustaría hacer un pedido";
+  // el mensaje debe ser sin espacios por lo cual colocamos guiones bajos
+  const mensaje = "Hola,_me_gustaría_hacer_un_pedido";
   const url = generarURLWhatsApp(numero, mensaje);
   window.open(url);
-  
+
 }
