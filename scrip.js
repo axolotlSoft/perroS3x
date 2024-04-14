@@ -93,7 +93,18 @@ function procesarPedido() {
   const numero = 3327279981;
   //const mensaje = "Hola, me gustaría hacer un pedido";
   // el mensaje debe ser sin espacios por lo cual colocamos guiones bajos
-  const mensaje = "Hola,_me_gustaría_hacer_un_pedido";
+  const mensaje = "Hola,_me_gustaría_hacer_un_pedido:_";
+  // añadimos las id de los productos que se encuentran en el carrito
+  const productos = document.querySelectorAll('#lista-carrito tbody tr');
+  productos.forEach(producto => {
+    const id = producto.querySelector('a').getAttribute('data-id');
+    mensaje += `${id},`;
+  });
+  // añadimos el total de la compra
+  const total = document.querySelector('.total span');
+  mensaje += `Total: ${total.textContent}`;
+  
+  // Generar la URL de WhatsApp
   const url = generarURLWhatsApp(numero, mensaje);
   window.open(url);
 
