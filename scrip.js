@@ -93,19 +93,31 @@ function procesarPedido() {
   const numero = 3327279981;
   //const mensaje = "Hola, me gustaría hacer un pedido";
   // el mensaje debe ser sin espacios por lo cual colocamos guiones bajos
-  const mensaje = "Hola,_me_gustaría_hacer_un_pedido:_";
-  // añadimos las id de los productos que se encuentran en el carrito
-  const productos = document.querySelectorAll('#lista-carrito tbody tr');
-  productos.forEach(producto => {
-    const id = producto.querySelector('a').getAttribute('data-id');
-    mensaje += `${id},`;
+  let mensaje = "Hola,_me_gustaría_hacer_un_pedido:_";
+  // añadimos las id de los productos que se encuentran en el carrito osea la lista
+  const productos = document.querySelectorAll("#lista-carrito tbody tr");
+  // mostramos en consola los productos
+  //console.log(productos);
+  //console.log(lista);
+  let total = 0;
+  // recorremos los productos
+  productos.forEach((producto) => {
+    // obtenemos la id del producto
+    const id = producto.querySelector("td:nth-child(4) a").getAttribute("data-id");
+    // obtenemos el titulo del producto
+    const titulo = producto.querySelector("td:nth-child(2)").textContent;
+    // obtenemos el precio del producto
+    const precio = producto.querySelector("td:nth-child(3)").textContent;
+    // añadimos el titulo y el precio al mensaje
+    //mensaje += `${titulo} ${precio},_`;
+    mensaje += `${id} ${titulo} ${precio},_`;
+    // sumamos el precio al total
+    total += parseFloat(precio);
   });
-  // añadimos el total de la compra
-  const total = document.querySelector('.total span');
-  mensaje += `Total: ${total.textContent}`;
-  
+  // añadimos el total al mensaje
+  mensaje += `Total: $${total}`;
   // Generar la URL de WhatsApp
   const url = generarURLWhatsApp(numero, mensaje);
   window.open(url);
 
-}
+} 
