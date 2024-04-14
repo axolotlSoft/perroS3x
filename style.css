@@ -11,6 +11,8 @@ font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
     text-decoration: none;
     list-style: none;
+    
+    
 }
 
 body {
@@ -88,7 +90,7 @@ img {
     display: block;
     position: absolute;
     right: 0;
-    backdrop-filter: blur(10px);
+    
     top: 100%;
     z-index: 1;
     background-color: #4E4B5076;
@@ -147,6 +149,7 @@ td {
     text-transform: uppercase;
     margin-bottom: 20px;
 }
+
 
 .btn-1 {
     display: inline-block;
@@ -443,4 +446,13 @@ td {
         flex-direction: column;
         text-align: center;
     }
+}
+
+/* header contacto */
+.header-contacto {
+    display: flex;
+    align-items: center;
+    min-height: 30vh;
+    background-color: #f5f5f5;
+    padding: 70px 0;
 }
